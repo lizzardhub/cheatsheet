@@ -24,10 +24,11 @@ import cv2
 import skimage
 from skimage import io
 image = cv2.imread(path)[:, :, ::-1].astype(np.float64) # BGR, uint8, 0-255. (H, W, 3) in all cases
-image = skimage.img_as_float(io.imread(path)) # uint8, 0-255. (H, W) in case of grayscale images
+image = io.imread(path)
+image = skimage.img_as_float(image) # uint8, 0-255. (H, W) in case of grayscale images
 image = cv2.resize(image, (w//2, h//2))
 cv2.imwrite(dest, image, [cv2.IMWRITE_JPEG_QUALITY, 100])
-io.imsave(path, image, quality=100)
+io.imsave(dest, image, quality=100)
 image = image[:, :, np.newaxis] # Image is (H, W), we need (H, W, 3)
 image = np.tile(image, 3)
 ```
