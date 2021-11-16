@@ -17,7 +17,16 @@ file_list = sorted(glob('frames/*.png'))
 file_list = sorted(Path('dir').rglob('*.png'))
 ```
 
-## image io
+## Paths
+
+```
+import os
+path = "/universe/milkyway/earth.jpg"
+os.path.basename(path) == "earth.jpg"
+os.path.exists(path) == True
+```
+
+## Image I/O
 
 ```
 import cv2
