@@ -13,7 +13,7 @@ from pathlib import Path
 from glob import glob
 os.remove(path)
 shutil.copy(src, dest)
-file_list = sorted(glob('frames/*.png'))
+file_list = sorted(glob('frames/*.png'))  # file_list = ['frames/1.png', ...]
 file_list = sorted(Path('dir').rglob('*.png'))
 ```
 
